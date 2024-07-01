@@ -1,0 +1,62 @@
+/* start android phone css values*/
+.devAndroidPhone #jim-body { position: absolute; overflow: auto; }
+.devAndroidPhone #jim-mobile { position: relative; top: 0px; margin: auto; }
+.devAndroidPhone #simulation { position: relative; height: 100%; }
+
+.devAndroidPhone #jim-case #jim-case-top-left { background-image: url('../../../../../images/mobile/android/android12/phone/custom-corner@2x.png'); background-repeat: no-repeat; float: left; }
+.devAndroidPhone #jim-case #jim-case-top-center { background-image: url('../../../../../images/mobile/android/android12/phone/custom-horizontal@2x.png'); background-repeat: repeat-x; float: left; }
+.devAndroidPhone #jim-case #jim-case-top-center #jim-case-phone-speaker { background-image: url('../../../../../images/mobile/android/android12/phone/custom-camera@2x.png'); background-size: 15.5px 20px; margin: auto; width: 15.5px; height:40px; }
+.devAndroidPhone #jim-case #jim-case-top-right { background-image: url('../../../../../images/mobile/android/android12/phone/custom-corner@2x.png'); transform: scaleX(-1); background-repeat: no-repeat; float: left; }
+
+.devAndroidPhone #jim-case #jim-case-center-left { background-image: url('../../../../../images/mobile/android/android12/phone/custom-vertical@2x.png'); background-repeat: repeat-y; float: left; }
+.devAndroidPhone #jim-case #jim-case-center-center { float: left; }
+.devAndroidPhone #jim-case #jim-case-center-right { background-image: url('../../../../../images/mobile/android/android12/phone/custom-vertical@2x.png'); transform: scaleX(-1); background-repeat: repeat-y; float: left; }
+
+.devAndroidPhone #jim-case #jim-case-bottom-left { background-image: url('../../../../../images/mobile/android/android12/phone/custom-corner@2x.png'); transform: scaleY(-1); background-repeat: no-repeat; float: left; }
+.devAndroidPhone #jim-case #jim-case-bottom-center { background-image: url('../../../../../images/mobile/android/android12/phone/custom-horizontal@2x.png'); transform: scaleY(-1); background-repeat: repeat-x; float: left; }
+.devAndroidPhone #jim-case #jim-case-bottom-right { background-image: url('../../../../../images/mobile/android/android12/phone/custom-corner@2x.png'); transform: scale(-1); background-repeat: no-repeat; float: left; }
+
+.devAndroidPhone #jim-case #cc-pieces { display:block; }
+.devAndroidPhone #jim-mobile .ui-page { overflow:hidden; }
+
+.devAndroidPhone #jim-case.landscape { transform:rotate(-90deg); }
+
+/* KEYBOARD PORTRAIT VALUES */
+/*Special rules for numbers and first key of the row*/
+.devAndroidPhone .portrait #jim-android-kb #letters .row:nth-child(2) > div:first-child { margin-left: 6.9%; }
+.devAndroidPhone .portrait #jim-android-kb #email .row:nth-child(2) > div:first-child { margin-left: 6.9%; }
+.devAndroidPhone .portrait #jim-android-kb #url .row:nth-child(2) > div:first-child { margin-left: 6.9%; }
+
+/* Keyboard special keys */
+.devAndroidPhone .portrait #jim-android-kb .row > div.space { width:37.5%; padding-top: 10px; padding-bottom: 0.5px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.num { padding-bottom: 2.5px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.emote { padding-top: 5px; padding-bottom: 5.5px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.return { padding-top: 5.75px; padding-bottom: 5.75px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.numbers { padding-top: 9px; padding-bottom: 0.75px; font-size: 16px;}
+.devAndroidPhone .portrait #jim-android-kb #signs .row > div.numbers { padding-top: 12px; padding-bottom: 3px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.letters { padding-bottom: 0.75px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.signs { padding-top: 12px; padding-bottom: 3px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.shift { padding-bottom: 7.5px;}
+.devAndroidPhone .portrait #jim-android-kb .row > div.char-code-44 {padding-top: 6px; padding-bottom: 4.5px;} /* character: , */
+.devAndroidPhone .portrait #jim-android-kb .row > div.char-code-46 {padding-top: 6px; padding-bottom: 4.5px;} /* character: . */
+.devAndroidPhone .portrait #jim-android-kb .row > div.char-code-60 {padding-top: 6px; padding-bottom: 4.5px;} /* character: < */
+.devAndroidPhone .portrait #jim-android-kb .row > div.char-code-62 {padding-top: 6px; padding-bottom: 4.5px;} /* character: > */
+.devAndroidPhone .portrait #jim-android-kb #url .row > div.char-code-47 {padding-top: 6px; padding-bottom: 4px;} /* character: \ */
+.devAndroidPhone .portrait #jim-android-kb #email .row > div.char-code-64 {padding-top: 6px; padding-bottom: 4px;} /* character: @ */
+
+/* KEYBOARD LANDSCAPE VALUES */
+/*Special rules for numbers and first key of the row*/
+.devAndroidPhone .landscape #jim-android-kb #letters .row:nth-child(2) > div:first-child { margin-left: 19%; }
+.devAndroidPhone .landscape #jim-android-kb #url .row:nth-child(2) > div:first-child { margin-left: 19%; }
+.devAndroidPhone .landscape #jim-android-kb #email .row:nth-child(2) > div:first-child { margin-left: 19%; }
+
+/* Keyboard special keys */
+.devAndroidPhone .landscape #jim-android-kb .row > div.space { width:27%; padding-top: 9px; padding-bottom: 0px; height: 26px;}
+.devAndroidPhone .landscape #jim-android-kb .row > div.numbers { padding-top: 6.5px; padding-bottom: 2.25px; font-size: 16px; height: 26px;}
+.devAndroidPhone .landscape #jim-android-kb #signs .row > div.numbers { padding-bottom: 2px;}
+.devAndroidPhone .landscape #jim-android-kb .row > div.letters { padding-bottom: 0px; padding-top: 5.5px;}
+.devAndroidPhone .landscape #jim-android-kb .row > div.shift { padding-bottom: 2.5px;}
+.devAndroidPhone .landscape #jim-android-kb .row > div.signs { padding-bottom: 1px; padding-top: 4.5px;}
+.devAndroidPhone .landscape #jim-android-kb .row > div.num { height: 25px; padding-top: 8px; padding-bottom: 2.25px;}
+.devAndroidPhone .landscape #jim-android-kb .row > div.return { padding-bottom: 4px;}
+.devAndroidPhone .landscape #jim-android-kb .row > div.emote { padding-bottom: 3px;}

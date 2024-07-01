@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://7uur7dmgrmo6"]
+
+[ext_resource type="PackedScene" uid="uid://bb7egje5vc5x2" path="res://blender/pulsador/pulsador.glb" id="1_wuqun"]
+[ext_resource type="Material" uid="uid://bx8p3tjrjaepm" path="res://materiales/plastico_verde.tres" id="2_3mmv6"]
+
+[node name="pulsador2" instance=ExtResource("1_wuqun")]
+
+[node name="pulsador" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0, 5.96046e-08, 0)
+surface_material_override/0 = ExtResource("2_3mmv6")

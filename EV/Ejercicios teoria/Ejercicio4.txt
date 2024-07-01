@@ -1,0 +1,30 @@
+shader_type spatial;
+
+uniform sampler2D textura;
+uniform float altura = 50.0;
+uniform float paso = 0.125;
+
+vec3 calcular_derivada(vec3 normal, vec2 uv, vec2 inc) {
+    float pA = texture(textura, uv + vec2(inc.x, 0.0)).r;
+    float pB = texture(textura, uv + vec2(-inc.x, 0.0)).r;
+    normal.x = 0.5 + (pA - pB)*2.;
+    pA = texture(textura, uv + vec2(0.0, inc.y)).r;
+    pB = texture(textura, uv + vec2(0.0, -inc.y)).r;
+    normal.y = 0.5 + (pA - pB)*2.;
+    return normalize(vec3(normal.x, normal.y, 1.0));
+}
+
+void vertex() {
+    // Called for every vertex the material is visible on.
+    ivec2 sizeT = textureSize(textura, 0);
+    vec2 inc = vec2(1.0/float(sizeT.x), 1.0/float(sizeT.y)) * paso;
+    VERTEX = VERTEX + NORMAL*texture(textura,UV).r*altura; // texture(textura, UV).xyz * vec3(0., 0., altura)
+    NORMAL = calcular_derivada(NORMAL, UV, inc);
+}
+
+void fragment() {
+    // Called for every pixel the material is visible on.
+    ivec2 sizeT = textureSize(textura, 0);
+    vec2 inc = vec2(1.0/float(sizeT.x), 1.0/float(sizeT.y)) * paso;
+    ALBEDO = calcular_derivada(NORMAL, UV, inc);
+}

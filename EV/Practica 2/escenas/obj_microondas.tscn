@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3vcb16c4rm"]
+
+[ext_resource type="PackedScene" uid="uid://cdspu4woqmb6y" path="res://blender/microondas/microondas.glb" id="1_s0ltc"]
+[ext_resource type="Script" path="res://scripts/puertaMicroondas.gd" id="2_gjeqn"]
+
+[node name="microondas" instance=ExtResource("1_s0ltc")]
+script = ExtResource("2_gjeqn")

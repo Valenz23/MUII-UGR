@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0bsu8xsrhash"]
+
+[ext_resource type="Script" path="res://scriptCubo.gd" id="1_087qd"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hk3tp"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_hk3tp")
+script = ExtResource("1_087qd")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.755945, -0.345672, 0.55593, 0, 0.849221, 0.528038, -0.654635, -0.399168, 0.641964, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)

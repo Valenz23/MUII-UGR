@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy6cla3w604by"]
+
+[ext_resource type="PackedScene" uid="uid://x2vtp6i1dfs8" path="res://blender/habitacion/habitacion.glb" id="1_85v6t"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.95, 0, 0, 0, 1, 0, 0, 0, 0.95, 0, 0.0999999, 0)
+
+[node name="habitacion2" parent="." instance=ExtResource("1_85v6t")]
+transform = Transform3D(1.05263, 0, 0, 0, 1, 0, 0, 0, 1.05263, 0, 0, 0)

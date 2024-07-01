@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfe5580curcib"]
+
+[ext_resource type="PackedScene" uid="uid://p7xrnhrmvbeg" path="res://blender/nevera/nevera.glb" id="1_ug52h"]
+[ext_resource type="Script" path="res://scripts/neveraAbrirPuerta.gd" id="2_4dryc"]
+[ext_resource type="Material" uid="uid://dooxrtn2m3m7w" path="res://materiales/metal_pulido.tres" id="2_do731"]
+[ext_resource type="Material" uid="uid://bqgvfusxjr48g" path="res://materiales/plastico_negro.tres" id="3_cpi45"]
+[ext_resource type="Material" uid="uid://bwpv1jtwko7h3" path="res://materiales/metal_brillante.tres" id="4_oi8k7"]
+
+[node name="nevera" instance=ExtResource("1_ug52h")]
+script = ExtResource("2_4dryc")
+
+[node name="aparato" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_do731")
+
+[node name="patas" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_cpi45")
+
+[node name="puerta" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.1, -1, 0.05, 0.9)
+surface_material_override/0 = ExtResource("2_do731")
+
+[node name="asa" parent="puerta" index="0"]
+surface_material_override/0 = ExtResource("4_oi8k7")
+
+[node name="pantalla" parent="puerta" index="1"]
+surface_material_override/0 = ExtResource("3_cpi45")

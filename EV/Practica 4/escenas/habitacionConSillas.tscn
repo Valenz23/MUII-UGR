@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://x4s3kc6rc7gs"]
+
+[ext_resource type="PackedScene" uid="uid://dy6cla3w604by" path="res://escenas/obj_habitacion.tscn" id="1_h7wfs"]
+[ext_resource type="PackedScene" uid="uid://yjxa6eys0xlb" path="res://escenas/obj_silla.tscn" id="2_h2swt"]
+[ext_resource type="PackedScene" uid="uid://7ytcj2qy257w" path="res://escenas/camara.tscn" id="3_l63f5"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.4717, 0)
+light_energy = 6.0
+shadow_enabled = true
+omni_range = 30.0
+
+[node name="habitacion" parent="." instance=ExtResource("1_h7wfs")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -3.34484, -0.848013, -0.519477)
+
+[node name="silla" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.133794, 0.150309, -0.0192209)
+
+[node name="silla7" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(0.0347262, 0, 0.0937768, 0, 0.1, 0, -0.0937768, 0, 0.0347262, 0.33502, 0.150309, 0.477805)
+
+[node name="silla2" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(0.0733054, 0, 0.068017, 0, 0.1, 0, -0.068017, 0, 0.0733054, -0.147152, 0.150309, 0.682773)
+
+[node name="silla3" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(-0.0791982, 0, 0.0610546, 0, 0.1, 0, -0.0610546, 0, -0.0791982, 0.694782, 0.150309, 0.588269)
+
+[node name="silla4" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(-0.0867964, 0, -0.0496626, 0, 0.1, 0, 0.0496626, 0, -0.0867964, 0.548472, 0.150309, -0.569239)
+
+[node name="silla9" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(-0.0999206, 0, -0.00398354, 0, 0.1, 0, 0.00398354, 0, -0.0999206, 0.742938, 0.150309, 0.003545)
+
+[node name="silla8" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(0.03202, 0, -0.094735, 0, 0.1, 0, 0.094735, 0, 0.03202, 0.186876, 0.150309, -0.655765)
+
+[node name="silla5" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(0.0538904, 0, 0.0842368, 0, 0.1, 0, -0.0842368, 0, 0.0538904, -0.245126, 0.150309, -0.407375)
+
+[node name="silla6" parent="habitacion" instance=ExtResource("2_h2swt")]
+transform = Transform3D(0.0968484, 0, -0.024908, 0, 0.1, 0, 0.024908, 0, 0.0968484, -0.425084, 0.150309, 0.130057)
+
+[node name="camara" parent="." instance=ExtResource("3_l63f5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, 3.08869, -0.946376)

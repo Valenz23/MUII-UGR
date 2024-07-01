@@ -1,0 +1,57 @@
+services:
+
+  # mi base de datos
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sonder
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: secret
+    volumes:
+      - mysql-data:/var/lib/mysql                                             # persistencia de base de datos
+      - ./src/BBDD/init.sql:/docker-entrypoint-initdb.d/init.sql              # copy configuracion de la DB
+      - ./src/BBDD/canciones2.csv:/var/lib/mysql-files/canciones2.csv         # datos iniciales de la DB
+
+  # la api que hemos diseñado
+  sonder:
+    image: pvalenz23/sonder:latest
+    command: ["sh", "-c", "sleep 30 && invoke test && hug -f api/sonder_api.py"]   # espero aque la DB este iniciada, ejecuto los test y la api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    volumes:
+      - sonder-logs:/sonder/src/logs                                          # persistencia de los logs
+      
+  # ELK -> para visualizar los logs
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.10.0
+    command: ["logstash", "-f", "/usr/share/logstash/pipeline/logstash.conf"]
+    volumes:
+      - ./logstash-config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf    # configuracion
+      - sonder-logs:/sonder-logs                                                      # uso del volumen de logs
+    environment:
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+
+volumes:
+  mysql-data:     # para la base de datos
+  sonder-logs:    # para el fichero de logs

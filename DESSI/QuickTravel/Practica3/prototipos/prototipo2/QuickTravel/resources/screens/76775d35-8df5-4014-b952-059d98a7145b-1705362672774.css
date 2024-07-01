@@ -1,0 +1,88 @@
+#s-76775d35-8df5-4014-b952-059d98a7145b > #backgroundBox {
+  position: absolute;
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b > #alignmentBox {
+  position: relative;
+  max-width: 360.0px;
+  max-height: 640.0px;
+  width: 100%;
+  height: 100%;
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b #s-Image {
+  position: absolute;
+  width: 359.99999999999983px;
+  height: 640.0000000000003px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b #s-Hotspot_1 {
+  position: absolute;
+  width: 63.999999999999886px;
+  height: 70.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b #s-Image_1 {
+  position: absolute;
+  width: 208.0px;
+  height: 211.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b #s-Hotspot_2 {
+  position: absolute;
+  width: 156.9999999999999px;
+  height: 48.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b #s-Hotspot_3 {
+  position: absolute;
+  width: 65.5000000000001px;
+  height: 55.75195312499966px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b #s-Hotspot_4 {
+  position: absolute;
+  width: 59.0px;
+  height: 62.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b #s-Hotspot_5 {
+  position: absolute;
+  width: 59.0px;
+  height: 62.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+.devMobile #jim-container .ui-page {
+  overflow-x: hidden;
+}
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+.web #simulation {
+  overflow-x: hidden;
+}
+#s-76775d35-8df5-4014-b952-059d98a7145b > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}

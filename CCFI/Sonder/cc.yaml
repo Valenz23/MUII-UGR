@@ -1,0 +1,18 @@
+lenguaje: Python
+
+clase: src\clases\cancion.py
+clase: src\clases\user.py
+
+test: src\tests\test_anadirCancion.py
+test: src\tests\test_anadirLote.py
+test: src\tests\test_borrarCancion.py
+test: src\tests\test_buscarCancion.py
+
+api: src\api\sonder_api.py
+test api: src\api\test_sonder_api.ay
+server api: src\hug_server.bat
+
+fichero_tareas: src\tasks.py
+
+
+

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://s3vcb16c4rm"]
+
+[ext_resource type="PackedScene" uid="uid://cdspu4woqmb6y" path="res://blender/microondas/microondas.glb" id="1_s0ltc"]
+[ext_resource type="Script" path="res://scripts/puertaMicroondas.gd" id="2_gjeqn"]
+[ext_resource type="Material" uid="uid://bx8p3tjrjaepm" path="res://materiales/plastico_verde.tres" id="3_jvvrn"]
+[ext_resource type="Material" uid="uid://dooxrtn2m3m7w" path="res://materiales/metal_pulido.tres" id="3_voluo"]
+[ext_resource type="Material" uid="uid://bwpv1jtwko7h3" path="res://materiales/metal_brillante.tres" id="4_cxm53"]
+[ext_resource type="Material" uid="uid://bqgvfusxjr48g" path="res://materiales/plastico_negro.tres" id="5_fl1d3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gaow"]
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+
+[node name="microondas" instance=ExtResource("1_s0ltc")]
+script = ExtResource("2_gjeqn")
+
+[node name="aparato" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_voluo")
+
+[node name="botones" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_jvvrn")
+
+[node name="ajusteT" parent="." index="2"]
+surface_material_override/0 = ExtResource("4_cxm53")
+
+[node name="pantalla" parent="." index="3"]
+surface_material_override/0 = ExtResource("5_fl1d3")
+
+[node name="patas" parent="." index="4"]
+surface_material_override/0 = ExtResource("5_fl1d3")
+
+[node name="plato" parent="." index="5"]
+surface_material_override/0 = ExtResource("5_fl1d3")
+
+[node name="puerta" parent="." index="6"]
+transform = Transform3D(-0.034202, 0, -0.0939693, 0, 0.1, 0, 0.0939693, 0, -0.034202, -0.8, 0.343265, -0.900147)
+surface_material_override/0 = ExtResource("3_voluo")
+
+[node name="manivela1" parent="puerta" index="0"]
+surface_material_override/0 = ExtResource("4_cxm53")
+
+[node name="manivela2" parent="puerta" index="1"]
+surface_material_override/0 = ExtResource("4_cxm53")
+
+[node name="ventana" parent="puerta" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0gaow")

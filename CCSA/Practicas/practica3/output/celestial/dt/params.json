@@ -1,0 +1,19 @@
+{
+    "cacheNodeIds": false,
+    "checkpointInterval": 10,
+    "featuresCol": "scaled_features",
+    "impurity": "gini",
+    "labelCol": "indexed_label",
+    "leafCol": "",
+    "maxBins": 50,
+    "maxDepth": 10,
+    "maxMemoryInMB": 256,
+    "minInfoGain": 0.0,
+    "minInstancesPerNode": 10,
+    "minWeightFractionPerNode": 0.0,
+    "predictionCol": "prediction",
+    "probabilityCol": "probability",
+    "rawPredictionCol": "rawPrediction",
+    "seed": 956191873026065186,
+    "AUC": 0.8826040891439407
+}

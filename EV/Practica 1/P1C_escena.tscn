@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhnkbjtc47hkj"]
+
+[ext_resource type="PackedScene" uid="uid://dy2wbyehus247" path="res://obj_habitacion.tscn" id="1_ohxn0"]
+[ext_resource type="PackedScene" uid="uid://cpgvsmglf638w" path="res://obj_palanca.tscn" id="2_iss8l"]
+[ext_resource type="PackedScene" uid="uid://my5n1oi58lh3" path="res://obj_mesa.tscn" id="3_ancbd"]
+[ext_resource type="PackedScene" uid="uid://yjxa6eys0xlb" path="res://P1A_silla.tscn" id="4_5q2t4"]
+[ext_resource type="PackedScene" uid="uid://dvealcdla4ne5" path="res://obj_microondas.tscn" id="5_8764s"]
+[ext_resource type="PackedScene" uid="uid://d0rqihcfo8mqt" path="res://obj_frigo.tscn" id="6_m8eoe"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="pasillo" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26909, 0)
+size = Vector3(4, 2.5, 1.5)
+
+[node name="puerta" type="CSGBox3D" parent="pasillo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04643, 0.559763, 0)
+size = Vector3(0.1, 1.17203, 1)
+
+[node name="puerta2" type="CSGBox3D" parent="pasillo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.046, 0.56, 0)
+size = Vector3(0.1, 1.17203, 1)
+
+[node name="hueco" type="CSGBox3D" parent="pasillo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+operation = 2
+size = Vector3(4, 1.2, 1)
+
+[node name="cinta" type="CSGBox3D" parent="pasillo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+size = Vector3(6.4, 0.2, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="pasillo/cinta"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.2, 0, 0)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="pasillo/cinta"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.2, 0, 0)
+radius = 0.1
+height = 1.0
+
+[node name="habitacion" parent="." instance=ExtResource("1_ohxn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27822, 2.35645, 3.41008)
+
+[node name="pulsador" type="CSGBox3D" parent="habitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69353, -0.110905, -1.58347)
+size = Vector3(0.3, 0.3, 0.6)
+
+[node name="palanca" parent="habitacion" instance=ExtResource("2_iss8l")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 2.76424, -0.316784, -4.64483)
+
+[node name="mesa" parent="habitacion" instance=ExtResource("3_ancbd")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.94864, -2.35631, 2.12515)
+
+[node name="silla3" parent="habitacion/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(0.349539, 0, -0.0179516, 0, 0.35, 0, 0.0179516, 0, 0.349539, -1.66035, -0.072741, 0.000655651)
+
+[node name="silla2" parent="habitacion/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(-0.34968, 0, -0.0149677, 0, 0.35, 0, 0.0149677, 0, -0.34968, 1.419, -0.072741, 0.000655651)
+
+[node name="silla" parent="habitacion/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(0.021934, 0, -0.349312, 0, 0.35, 0, 0.349312, 0, 0.021934, 0.0758481, -0.072741, -1.32536)
+
+[node name="mesa2" parent="habitacion" instance=ExtResource("3_ancbd")]
+transform = Transform3D(0.0606561, 0, -0.697367, 0, 0.7, 0, 0.697367, 0, 0.0606561, -3.03172, -2.34859, 0.0678544)
+
+[node name="silla3" parent="habitacion/mesa2" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(0.349539, 0, -0.0179516, 0, 0.35, 0, 0.0179516, 0, 0.349539, -1.66035, -0.072741, 0.000655651)
+
+[node name="silla2" parent="habitacion/mesa2" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(-0.34968, 0, -0.0149677, 0, 0.35, 0, 0.0149677, 0, -0.34968, 1.419, -0.072741, 0.000655651)
+
+[node name="silla" parent="habitacion/mesa2" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(0.021934, 0, -0.349312, 0, 0.35, 0, 0.349312, 0, 0.021934, 0.0758481, -0.072741, -1.32536)
+
+[node name="hueco" type="CSGBox3D" parent="habitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.27877, -1.15996, -3.39703)
+operation = 2
+size = Vector3(4, 2.5, 1.5)
+
+[node name="habitacion2" parent="." instance=ExtResource("1_ohxn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42145, 2.5, 3.25377)
+
+[node name="palanca2" parent="habitacion2" instance=ExtResource("2_iss8l")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -2.91409, -0.460334, -4.48852)
+
+[node name="luz" type="CSGCylinder3D" parent="habitacion2"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.7012, 0.791014, -1.51571)
+radius = 0.25
+height = 0.1
+
+[node name="mueble" type="CSGBox3D" parent="habitacion2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40582, -1.65931, 3.74729)
+size = Vector3(6.65527, 1.5, 2)
+
+[node name="microondas" parent="habitacion2/mueble" instance=ExtResource("5_8764s")]
+transform = Transform3D(0.90254, 0, -0.430606, 0, 1, 0, 0.430606, 0, 0.90254, -2.16885, 1.14179, 0)
+
+[node name="frigo" parent="habitacion2/mueble" instance=ExtResource("6_m8eoe")]
+
+[node name="hueco2" type="CSGBox3D" parent="habitacion2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.42145, -1.23091, -3.24088)
+operation = 2
+size = Vector3(4, 2.5, 1.5)

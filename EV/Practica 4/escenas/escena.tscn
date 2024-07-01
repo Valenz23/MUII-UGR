@@ -1,0 +1,190 @@
+[gd_scene load_steps=22 format=3 uid="uid://dhnkbjtc47hkj"]
+
+[ext_resource type="PackedScene" uid="uid://c7qxeojs5k2c6" path="res://escenas/obj_habitacion2.tscn" id="1_226fq"]
+[ext_resource type="PackedScene" uid="uid://cpgvsmglf638w" path="res://escenas/obj_palanca.tscn" id="2_iss8l"]
+[ext_resource type="PackedScene" uid="uid://7uur7dmgrmo6" path="res://escenas/obj_pulsador.tscn" id="3_a7rnt"]
+[ext_resource type="PackedScene" uid="uid://my5n1oi58lh3" path="res://escenas/obj_mesa.tscn" id="3_ancbd"]
+[ext_resource type="PackedScene" uid="uid://yjxa6eys0xlb" path="res://escenas/obj_silla.tscn" id="4_5q2t4"]
+[ext_resource type="Script" path="res://scripts/parpadeo.gd" id="5_kkp15"]
+[ext_resource type="PackedScene" uid="uid://dggo8ntsgy8sw" path="res://escenas/obj_encimera.tscn" id="9_v2doc"]
+[ext_resource type="Script" path="res://scripts/controlCAMARA1.gd" id="10_blw2t"]
+[ext_resource type="PackedScene" uid="uid://c8441ajmycgqf" path="res://escenas/obj_cinta.tscn" id="11_3yxfq"]
+[ext_resource type="PackedScene" uid="uid://50ul7ygot6xu" path="res://escenas/obj_luz.tscn" id="11_4hfly"]
+[ext_resource type="PackedScene" uid="uid://cfe5580curcib" path="res://escenas/obj_nevera.tscn" id="11_5g00g"]
+[ext_resource type="PackedScene" uid="uid://s3vcb16c4rm" path="res://escenas/obj_microondas.tscn" id="11_d2tlh"]
+[ext_resource type="PackedScene" uid="uid://c5xoxwfiv80aa" path="res://escenas/obj_pizza.tscn" id="11_epr54"]
+[ext_resource type="Script" path="res://scripts/controlCAMARA2.gd" id="14_5sx13"]
+[ext_resource type="Script" path="res://scripts/test.gd" id="14_34rlr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4l0bv"]
+
+[sub_resource type="Sky" id="Sky_sc0of"]
+sky_material = SubResource("ProceduralSkyMaterial_4l0bv")
+
+[sub_resource type="Environment" id="Environment_wooqh"]
+background_mode = 2
+sky = SubResource("Sky_sc0of")
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_xqxci"]
+
+[sub_resource type="Animation" id="Animation_ohscp"]
+resource_name = "parpadeo"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.0, 0.0, 4.0, 0.0, 4.0, 0.0, 4.0, 0.0, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8nwh"]
+_data = {
+"parpadeo": SubResource("Animation_ohscp")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wooqh")
+camera_attributes = SubResource("CameraAttributesPhysical_xqxci")
+
+[node name="habitacions" parent="." instance=ExtResource("1_226fq")]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.480165, -0.0452132, -0.37807)
+
+[node name="cinta" parent="habitacions" instance=ExtResource("11_3yxfq")]
+transform = Transform3D(-0.200025, 0, 1.74868e-08, 0, 0.200025, 0, -1.74868e-08, 0, -0.200025, 0.00713669, 0.331831, 0.410858)
+
+[node name="cocina" type="Node3D" parent="habitacions"]
+
+[node name="palanca2" parent="habitacions/cocina" instance=ExtResource("2_iss8l")]
+transform = Transform3D(0.1, 1.31134e-08, -8.74228e-09, 8.7423e-09, 0, 0.1, 1.31134e-08, -0.1, -7.64274e-16, -0.862725, 0.498913, 0.890196)
+
+[node name="luz" parent="habitacions/cocina" instance=ExtResource("11_4hfly")]
+transform = Transform3D(-0.1, -3.28406e-16, 3.17862e-09, -7.10543e-16, -0.1, -4.37114e-09, 3.17862e-09, -4.37113e-09, 0.1, -0.986817, 1.07378, -0.000503161)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="habitacions/cocina/luz"]
+transform = Transform3D(1, 1.19209e-07, -5.21079e-15, 0, -4.37114e-08, -1, -1.19209e-07, 1, -4.37114e-08, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
+shadow_normal_bias = 0.0
+spot_range = 10.0
+spot_angle = 60.0
+script = ExtResource("5_kkp15")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="habitacions/cocina/luz/SpotLight3D2"]
+libraries = {
+"": SubResource("AnimationLibrary_v8nwh")
+}
+
+[node name="encimera" parent="habitacions/cocina" instance=ExtResource("9_v2doc")]
+transform = Transform3D(-6.55671e-09, 4.55939e-15, -0.15, 2.98023e-08, 0.15, 1.59872e-15, 0.15, -2.98023e-08, -6.55672e-09, -0.519928, 0.242253, -0.777491)
+
+[node name="microondas" parent="habitacions/cocina/encimera" instance=ExtResource("11_d2tlh")]
+transform = Transform3D(-0.724445, -4.26326e-14, 0.194114, -4.26326e-14, 0.75, 2.4869e-14, -0.194114, 5.0822e-21, -0.724444, 0.112926, 1.16899, 0.0314741)
+
+[node name="encimera2" parent="habitacions/cocina" instance=ExtResource("9_v2doc")]
+transform = Transform3D(-6.55671e-09, 4.55939e-15, -0.15, 2.98023e-08, 0.15, 1.59872e-15, 0.15, -2.98023e-08, -6.55672e-09, -0.816678, 0.242253, -0.777491)
+
+[node name="pizza" parent="habitacions/cocina/encimera2" instance=ExtResource("11_epr54")]
+transform = Transform3D(-2.03986e-08, 9.27183e-08, -0.466667, -9.20963e-16, 0.466667, 9.27183e-08, 0.466667, 1.01319e-14, -2.03986e-08, -0.0100598, 1.03448, -0.101013)
+
+[node name="encimera3" parent="habitacions/cocina" instance=ExtResource("9_v2doc")]
+transform = Transform3D(-6.55671e-09, 4.55939e-15, -0.15, 2.98023e-08, 0.15, 1.59872e-15, 0.15, -2.98023e-08, -6.55672e-09, -1.1154, 0.242253, -0.777491)
+
+[node name="nevera" parent="habitacions/cocina" instance=ExtResource("11_5g00g")]
+transform = Transform3D(0.15, 0, 9.53598e-09, 0, 0.15, 0, -9.53598e-09, 0, 0.15, -1.42024, 0.391583, -0.736222)
+
+[node name="camara1" type="Node3D" parent="habitacions/cocina"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969112, 0.554671, 0.296256)
+
+[node name="camara" type="Camera3D" parent="habitacions/cocina/camara1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+cull_mask = 1
+script = ExtResource("10_blw2t")
+sensibility = 10
+
+[node name="comedor" type="Node3D" parent="habitacions"]
+
+[node name="luz2" parent="habitacions/comedor" instance=ExtResource("11_4hfly")]
+transform = Transform3D(-0.1, -3.28406e-16, 3.17862e-09, -7.10543e-16, -0.1, -4.37114e-09, 3.17862e-09, -4.37113e-09, 0.1, 1.01318, 1.07378, -0.000502987)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="habitacions/comedor/luz2"]
+transform = Transform3D(1, 1.19209e-07, -5.21079e-15, 0, -4.37114e-08, -1, -1.19209e-07, 1, -4.37114e-08, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
+shadow_normal_bias = 0.0
+spot_range = 10.0
+spot_angle = 60.0
+
+[node name="pulsador2" parent="habitacions/comedor" instance=ExtResource("3_a7rnt")]
+transform = Transform3D(1.31134e-08, 0.1, -4.37114e-09, 0, -4.37114e-09, -0.1, -0.1, 1.31134e-08, -5.73206e-16, 0.110655, 0.589399, -0.0537386)
+
+[node name="palanca" parent="habitacions/comedor" instance=ExtResource("2_iss8l")]
+transform = Transform3D(0.1, 8.74228e-09, -8.74229e-09, 8.7423e-09, -4.37114e-09, 0.1, 8.74228e-09, -0.1, -4.37114e-09, 0.767402, 0.501369, 0.889378)
+
+[node name="mesa" parent="habitacions/comedor" instance=ExtResource("3_ancbd")]
+transform = Transform3D(-0.15, 0, 1.31134e-08, 0, 0.15, 0, -1.31134e-08, 0, -0.15, 1.1428, 0.241783, -0.584191)
+
+[node name="silla" parent="habitacions/comedor/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.0758486, -0.279318, -2.7453)
+
+[node name="silla2" parent="habitacions/comedor/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(-3.27836e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27836e-08, -2.72415, -0.279318, 0.0274496)
+
+[node name="silla3" parent="habitacions/comedor/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(-3.27836e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27836e-08, 2.80823, -0.279318, 0.0274496)
+
+[node name="camara2" type="Node3D" parent="habitacions/comedor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17553, 0.554671, 0.296256)
+
+[node name="camara" type="Camera3D" parent="habitacions/comedor/camara2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("14_5sx13")
+sensibility = 10
+
+[node name="controlCamara" type="Node3D" parent="habitacions"]
+script = ExtResource("14_34rlr")
+
+[node name="Label" type="Label" parent="habitacions"]
+anchors_preset = -1
+anchor_left = 0.213
+anchor_top = 0.093
+anchor_right = 0.213
+anchor_bottom = 0.093
+offset_left = -208.376
+offset_top = -49.264
+offset_right = 220.624
+offset_bottom = 215.736
+text = "(1) Cámara 1
+(2) Cámara 2
+
+(Espacio) Animación
+(L) Parpadeo	
+
+(W) Adelante
+(A) Izquierda
+(S) Atrás
+(D) Derecha
+(RMB) Modo interacción
+"
+
+[connection signal="camara_1" from="habitacions/controlCamara" to="habitacions/cocina/camara1/camara" method="_on_test_camara_1"]
+[connection signal="camara_2" from="habitacions/controlCamara" to="habitacions/comedor/camara2/camara" method="_on_test_camara_2"]

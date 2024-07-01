@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://50ul7ygot6xu"]
+
+[ext_resource type="PackedScene" uid="uid://tn0xblgesv3h" path="res://blender/luz/luz.glb" id="1_3xffw"]
+[ext_resource type="Material" uid="uid://chjdxbcomg3ds" path="res://materiales/plastico_negro.tres" id="2_vt7s7"]
+[ext_resource type="Material" uid="uid://cevt5wjo368q0" path="res://materiales/plastico_blanco.tres" id="3_vcusm"]
+
+[node name="luz2" instance=ExtResource("1_3xffw")]
+
+[node name="marco" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_vt7s7")
+
+[node name="luz" parent="." index="2"]
+surface_material_override/0 = ExtResource("3_vcusm")

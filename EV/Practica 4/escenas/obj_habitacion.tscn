@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy6cla3w604by"]
+
+[ext_resource type="PackedScene" uid="uid://x2vtp6i1dfs8" path="res://blender/habitacion/habitacion.glb" id="1_85v6t"]
+[ext_resource type="Texture2D" uid="uid://3frba4gn17lo" path="res://blender/habitacion/uv/habitacion_color.png" id="2_7whmt"]
+[ext_resource type="Texture2D" uid="uid://dr325ep5qhuyf" path="res://blender/habitacion/uv/habitacion_normal.png" id="3_u3i5b"]
+[ext_resource type="Texture2D" uid="uid://du3x8bgs6fi6x" path="res://blender/habitacion/uv/habitacion_roughness.png" id="4_7gilg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycbyl"]
+albedo_texture = ExtResource("2_7whmt")
+metallic = 0.3
+roughness = 0.5
+roughness_texture = ExtResource("4_7gilg")
+normal_enabled = true
+normal_texture = ExtResource("3_u3i5b")
+
+[node name="habitacion" instance=ExtResource("1_85v6t")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ycbyl")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpgvsmglf638w"]
+
+[ext_resource type="PackedScene" uid="uid://dums3hsqggmx1" path="res://blender/palanca/palanca.glb" id="1_0rrvm"]
+[ext_resource type="Material" uid="uid://chjdxbcomg3ds" path="res://materiales/plastico_negro.tres" id="2_454hf"]
+[ext_resource type="Script" path="res://scripts/palanca.gd" id="2_kmv73"]
+[ext_resource type="Material" uid="uid://ds76l731hiesv" path="res://materiales/metal_brillante.tres" id="3_j2ujj"]
+[ext_resource type="Texture2D" uid="uid://dgbnfdl87dhiq" path="res://texturas/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Color.jpg" id="4_fi5xd"]
+[ext_resource type="Texture2D" uid="uid://c1down0o3f7td" path="res://texturas/PaintedMetal004_1K-JPG/PaintedMetal004_1K-PNG_NormalGL.png" id="5_7upop"]
+[ext_resource type="Texture2D" uid="uid://btpf14r2all4p" path="res://texturas/PaintedMetal004_1K-JPG/PaintedMetal004_1K-PNG_Roughness.png" id="6_ulcbx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llsp3"]
+albedo_texture = ExtResource("4_fi5xd")
+metallic = 0.2
+roughness = 0.8
+roughness_texture = ExtResource("6_ulcbx")
+normal_enabled = true
+normal_texture = ExtResource("5_7upop")
+
+[node name="palanca" instance=ExtResource("1_0rrvm")]
+script = ExtResource("2_kmv73")
+
+[node name="base" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_454hf")
+
+[node name="palo" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.433013, -0.05, 0, 0.25, 0.0866026, 0, 0, 0)
+surface_material_override/0 = ExtResource("3_j2ujj")
+
+[node name="pomo" parent="palo" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_llsp3")

@@ -1,0 +1,151 @@
+#s-a9728240-1718-464b-a2dd-56afe2f18758 > #backgroundBox {
+  position: absolute;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 > #alignmentBox {
+  position: relative;
+  max-width: 360.0px;
+  max-height: 640.0px;
+  width: 100%;
+  height: 100%;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Image {
+  position: absolute;
+  width: 359.99999999999983px;
+  height: 640.0000000000003px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Image_1 {
+  position: absolute;
+  width: 208.0px;
+  height: 211.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Image_2 {
+  position: absolute;
+  width: 208.0px;
+  height: 211.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Hotspot_1 {
+  position: absolute;
+  width: 156.9999999999999px;
+  height: 48.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Hotspot_2 {
+  position: absolute;
+  width: 65.5000000000001px;
+  height: 55.75195312499966px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Hotspot_3 {
+  position: absolute;
+  width: 63.999999999999886px;
+  height: 70.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Hotspot_4 {
+  position: absolute;
+  width: 73.0px;
+  height: 79.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Hotspot_5 {
+  position: absolute;
+  width: 73.00000000000148px;
+  height: 60.37109375px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Paragraph_1 {
+  position: absolute;
+  width: auto;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  font-size: 0pt;
+  font-family: 'Arial',Arial;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Paragraph_1 > .backgroundLayer > .colorLayer {
+  background-color: #FFFFFF;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Paragraph_1 .paddingLayer {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Paragraph_1 .valign {
+  vertical-align: top;
+  text-align: left;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Paragraph_1 span {
+  color: #000000;
+  text-align: left;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 27.0pt;
+  font-weight: 400;
+  text-transform: none;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Paragraph_1 span#rtr-s-Paragraph_1_0 {
+  color: #000000;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 27.0pt;
+  font-weight: 400;
+  text-transform: none;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 #s-Hotspot_6 {
+  position: absolute;
+  width: 73.0px;
+  height: 80.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+}
+.devMobile #jim-container .ui-page {
+  overflow-x: hidden;
+}
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+.web #simulation {
+  overflow-x: hidden;
+}
+#s-a9728240-1718-464b-a2dd-56afe2f18758 > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}

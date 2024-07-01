@@ -1,0 +1,97 @@
+1. Mis tres componentes son:
+    - Salud: Representa la salud o vida de la entidad.
+    - Magia: Representa la magia de la entidad.
+    - Fuego: Representa el poder de ataque magico con fuego de la entidad
+
+2. Mis entidades se representan computacionalmente como:
+    - Jugador: El personaje contralado por el jugador
+    - Enemigo: Personajes hostiles con el jugador.
+
+3. Mis componentes se representan computacionalmente como:
+    class SALUD{
+        salud_maxima = 100  
+        salud_actual = 100
+    }
+    class MAGIA{
+        magia_maxima = 100 
+        magia_actual = 100
+    }
+    class FUEGO{
+        ataque = 50 
+        coste = 10 
+    }
+
+4. Mis sistemas se representan computacionalmente como:
+    
+    
+    // el personaje ataca y se le resta el coste a la magia
+    ataque function atacar(){
+        if (pulsarTeclaAtacar() AND (magia_actual >= coste)){
+            magia_actual -= coste
+            return [fuego.ataque]
+        }
+        else{
+            mensaje("No tengo magia")
+            return [0]
+        }
+    }
+    
+    // el personaje recibe daño, activa la animacion de muerte si su vida se queda a 0
+    function recibirDaño(ataqueEnemigo){
+        salud_actual -= ataqueEnemigo
+        if(salud_actual <= 0){
+            animacion(MUERTE)
+        }
+    }        
+        
+5. Las estructuras empleadas son:
+- Nodos: Jugador y enemigos
+- Scripts: atacar, recibir daño
+- Métodos: conseguir la instacia y metodos para los scripts
+
+6. El pseudo algoritmo que uniría las estructuras del punto 5 sería el siguiente:
+
+    class JUGADOR {
+        SALUD salud
+        MAGIA magia
+        FUEGO fuego
+
+        private static JUGADOR _instancia
+
+        function getInstancia(){
+            return [_instancia]
+        }
+
+        ataque function atacar(){
+            if (pulsarTeclaAtacar() AND (magia.magia_actual >= fuego.coste)){
+                magia.magia_actual -= fuego.coste
+                return [fuego.ataque]
+            }
+            else{
+                mensaje("No tengo magia")
+                return [0]
+            }
+        }
+        function recibirDaño(ataqueEnemigo){
+            salud.salud_actual -= ataqueEnemigo
+            if(salud.salud_actual <= 0){
+                animacion(MUERTE)
+            }
+        }
+    }
+
+7. Dadas estas entidades: Jugador y Enemigo, el ejemplo de funcionamiento sería el siguiente:
+    ...
+    jugador = JUGADOR.getInstancia()
+    enemigo = ENEMIGO.getInstancia() // misma implementacion que JUGADOR
+    ...
+    function combate(){
+        while (jugador.salud_actual > 0 OR enemigo.salud_actual > 0){
+            // logica de combate, esquives, resistencias, ...
+            jugador.recibirDaño(enemigo.atacar())
+            enemigo.recibirDaño(jugador.atacar())
+        }
+        if (enemigo.salud_actual <= 0)
+            mensaje("VICTORIA")
+        else mensaje("HAS PERDIDO")
+    }

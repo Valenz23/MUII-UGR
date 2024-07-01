@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://yjxa6eys0xlb"]
+
+[ext_resource type="Script" path="res://rotacio.gd" id="1_w4bya"]
+
+[node name="silla" type="Node3D"]
+
+[node name="soporte" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, -6.38621e-08, -4.52549e-15, 0, 3, 1.24345e-14, 0, 0, 0.5, -0.95575, 1.50808, 2.38032e-13)
+
+[node name="pata1" type="CSGBox3D" parent="soporte"]
+transform = Transform3D(0.819152, 0, 5.73576, 0, 0.166667, 0, -0.573576, 0, 8.19152, 0, -0.502693, 0)
+
+[node name="pata2" type="CSGBox3D" parent="soporte"]
+transform = Transform3D(0.819152, 0, -5.73576, 0, 0.166667, 0, 0.573577, 0, 8.19152, 0, -0.502693, 0)
+
+[node name="repaldo" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-0.178439, 1.168e-07, 0.498725, 2.49362, -1.012e-07, 0.0356878, 1.09278e-07, 2.5, -2.18557e-08, -2.23115, 6.24916, 7.10543e-15)
+height = 0.5
+sides = 20
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="repaldo"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.25, -1.09278e-08)
+rings = 10
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="repaldo"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.25, 1.09278e-08)
+rings = 10
+
+[node name="soporte2" type="CSGBox3D" parent="repaldo"]
+transform = Transform3D(3.82137e-16, 1.2, 8.74228e-09, 8.74228e-09, -5.24537e-08, 0.2, 1, -8.13152e-22, -4.37114e-08, -0.712654, 2.58884e-08, -0.601984)
+size = Vector3(0.25, 1, 1)
+
+[node name="Asiento" type="CSGCylinder3D" parent="repaldo"]
+transform = Transform3D(-0.0999258, 1.56085e-10, -0.279286, 6.54078e-08, 1.4, -9.04782e-10, 6.98215, -3.27819e-07, -0.0999258, -1.34038, 8.14355e-08, 2.6132)
+height = 0.5
+sides = 20
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="repaldo/Asiento"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.25, -1.09278e-08)
+rings = 10
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="repaldo/Asiento"]
+transform = Transform3D(1, -8.13469e-24, -2.64698e-23, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.25, 0)
+rings = 10
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_w4bya")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 2.5, 0)

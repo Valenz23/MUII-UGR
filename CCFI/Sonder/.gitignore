@@ -1,0 +1,5 @@
+# Ignorar carpetas
+
+src\clases\__pycache__
+src\tests\__pycache__
+src\api\__pycache__

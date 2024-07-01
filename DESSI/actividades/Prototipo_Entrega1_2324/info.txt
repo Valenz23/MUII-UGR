@@ -1,0 +1,10 @@
+Nuestro prototipo esta centrado en las primeras etapas de la fase de desarrollo. En estas etapas damos acceso a 
+usuarios y clientes para que puedan loguearse y editar sus datos.
+
+Hay un restriccion de cara a los clientes en el caso de que tengan problemas al validar su usuario y contraseña 
+y que hemos representado on el boton rojo en la primera pantalla. Si se da el caso tienen que contactar con un 
+admin de la aplicación.
+
+Una vez accedido a la aplicación podemos desplegar un menu representado en la parte superior como un botón 
+circular con la letra M. Los dos enlaces representarian el acceso distinto que tendrían distintos tipos de
+usuario para una misma función, en este caso editar sus datos.

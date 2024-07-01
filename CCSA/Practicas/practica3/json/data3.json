@@ -1,0 +1,12 @@
+{
+  "expAB_z": 0.9,
+  "i": 23.0,
+  "q_r": 0.95,
+  "modelFlux_r": 26.1,
+  "expAB_i": 1.3,
+  "expRad_u": 0.5,
+  "q_g": 0.8,
+  "psfMag_z": 23.5,
+  "dec": -1.0,
+  "psfMag_r": 21.5
+}

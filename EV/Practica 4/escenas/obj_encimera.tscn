@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dggo8ntsgy8sw"]
+
+[ext_resource type="PackedScene" uid="uid://i7e25dc4jrj1" path="res://blender/encimera/encimera.glb" id="1_rp6dq"]
+[ext_resource type="Material" uid="uid://bi27lv3mqldtw" path="res://materiales/madera2.tres" id="2_h8371"]
+[ext_resource type="Material" uid="uid://cswbrj4k6ubud" path="res://materiales/madera.tres" id="3_ojvyf"]
+[ext_resource type="Material" uid="uid://h4pcmfbk87us" path="res://materiales/granito.tres" id="4_u2kyu"]
+[ext_resource type="Material" uid="uid://bwpv1jtwko7h3" path="res://materiales/metal_brillante.tres" id="5_s7ics"]
+
+[node name="encimera" instance=ExtResource("1_rp6dq")]
+
+[node name="base" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_h8371")
+
+[node name="patas" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_ojvyf")
+
+[node name="top" parent="." index="2"]
+surface_material_override/0 = ExtResource("4_u2kyu")
+
+[node name="tirador" parent="." index="3"]
+surface_material_override/0 = ExtResource("5_s7ics")

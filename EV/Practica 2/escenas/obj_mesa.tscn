@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://my5n1oi58lh3"]
+
+[ext_resource type="PackedScene" uid="uid://cl6mk2cucnv0t" path="res://blender/mesa/mesa.glb" id="1_xis7n"]
+
+[node name="mesa" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+radius = 1.0
+height = 0.1
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+radius = 0.1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCylinder3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(1.5, 0.1, 0.1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCylinder3D/CSGCylinder3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1, 0)
+size = Vector3(1.5, 0.1, 0.1)
+
+[node name="mesa" parent="." instance=ExtResource("1_xis7n")]

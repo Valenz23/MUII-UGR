@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://50ul7ygot6xu"]
+
+[ext_resource type="PackedScene" uid="uid://tn0xblgesv3h" path="res://blender/luz/luz.glb" id="1_3xffw"]
+[ext_resource type="Material" uid="uid://chjdxbcomg3ds" path="res://materiales/plastico_negro.tres" id="2_vt7s7"]
+[ext_resource type="Material" uid="uid://cevt5wjo368q0" path="res://materiales/plastico_blanco.tres" id="3_vcusm"]
+
+[node name="luz2" instance=ExtResource("1_3xffw")]
+
+[node name="marco" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_vt7s7")
+
+[node name="luz" parent="." index="2"]
+surface_material_override/0 = ExtResource("3_vcusm")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0158248, 0)
+visible = false
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 10.0
+spot_angle = 90.0

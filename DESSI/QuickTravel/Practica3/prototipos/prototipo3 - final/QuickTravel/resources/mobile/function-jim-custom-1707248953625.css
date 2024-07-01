@@ -1,0 +1,77 @@
+.s360x640 #jim-mobile {
+  width: 384.0px;
+}
+.s360x640 #jim-mobile.landscape {
+  width: 664.0px;
+  height: 400.0px;
+}
+.s360x640 #jim-case {
+  width: 384.0px;
+  height: 680.0px;
+}
+.s360x640 #jim-container.portrait {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  width: 360.0px;
+  height: 640.0px;
+}
+.s360x640 #jim-container.landscape {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  width: 640.0px;
+  height: 360.0px;
+}
+.s360x640 #jim-case #jim-case-top-left {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+.s360x640 #jim-case #jim-case-top-center {
+  width: 344.0px;
+  height: 20px;
+  background-size: 360.0px 20px;
+  overflow: hidden;
+}
+.s360x640 #jim-case #jim-case-top-right {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+.s360x640 #jim-case #jim-case-center-left {
+  width: 12px;
+  height: 640.0px;
+  background-size: 12px 640.0px;
+}
+.s360x640 #jim-case #jim-case-center-center {
+  width: 360.0px;
+  height: 640.0px;
+}
+.s360x640 #jim-case #jim-case-center-right {
+  width: 12px;
+  height: 640.0px;
+  background-size: 12px 640.0px;
+}
+.s360x640 #jim-case #jim-case-bottom-left {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+.s360x640 #jim-case #jim-case-bottom-center {
+  width: 344.0px;
+  height: 20px;
+  background-size: 360.0px 20px;
+}
+.s360x640 #jim-case #jim-case-bottom-right {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+.s360x640 #jim-case.landscape {
+  transform-origin: 50% 28.235294% 0;
+}

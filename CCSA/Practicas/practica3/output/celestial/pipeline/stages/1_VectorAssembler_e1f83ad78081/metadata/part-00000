@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.VectorAssembler","timestamp":1716456371363,"sparkVersion":"3.5.1","uid":"VectorAssembler_e1f83ad78081","paramMap":{"inputCols":["expAB_z","i","q_r","modelFlux_r","expAB_i","expRad_u","q_g","psfMag_z","dec","psfMag_r"],"outputCol":"features"},"defaultParamMap":{"handleInvalid":"error","outputCol":"VectorAssembler_e1f83ad78081__output"}}

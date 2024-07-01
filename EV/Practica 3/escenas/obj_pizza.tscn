@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5xoxwfiv80aa"]
+
+[ext_resource type="PackedScene" uid="uid://m1ucff3mjwh4" path="res://blender/pizza/pizza.glb" id="1_g5y6c"]
+[ext_resource type="Texture2D" uid="uid://d15u8u6ooccka" path="res://blender/pizza/pizza_textures/PIZZA.jpg" id="2_kktkq"]
+[ext_resource type="Texture2D" uid="uid://bf8ihl50php2v" path="res://blender/pizza/pizza_textures/pizza_NORM.jpg" id="3_343hr"]
+[ext_resource type="Texture2D" uid="uid://cbpd4ca83q4tu" path="res://blender/pizza/pizza_textures/pizza_SPEC.jpg" id="4_6xlea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujjjt"]
+albedo_texture = ExtResource("2_kktkq")
+roughness_texture = ExtResource("4_6xlea")
+normal_enabled = true
+normal_texture = ExtResource("3_343hr")
+
+[node name="pizza" instance=ExtResource("1_g5y6c")]
+
+[node name="Pizza" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ujjjt")

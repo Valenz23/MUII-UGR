@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://yjxa6eys0xlb"]
+
+[ext_resource type="PackedScene" uid="uid://8b0mdfct14s4" path="res://blender/silla/silla.glb" id="1_bn8mg"]
+[ext_resource type="Texture2D" uid="uid://b11j4qyjkuigj" path="res://texturas/Wood051_1K/Wood051_1K-JPG_Color.jpg" id="2_qoj8h"]
+[ext_resource type="Texture2D" uid="uid://3voixiem584t" path="res://texturas/Wood051_1K/Wood051_1K-PNG_Roughness.png" id="3_jgfty"]
+[ext_resource type="Texture2D" uid="uid://cvqmo2qb57peg" path="res://texturas/Wood051_1K/Wood051_1K-PNG_NormalGL.png" id="4_ytlxd"]
+[ext_resource type="Material" uid="uid://bjqp125wj80qn" path="res://materiales/cojin.tres" id="5_pswue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fnyl"]
+albedo_texture = ExtResource("2_qoj8h")
+metallic = 0.4
+metallic_specular = 0.07
+roughness = 0.82
+roughness_texture = ExtResource("4_ytlxd")
+normal_enabled = true
+normal_texture = ExtResource("3_jgfty")
+
+[node name="silla2" instance=ExtResource("1_bn8mg")]
+
+[node name="silla" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6fnyl")
+
+[node name="cojin" parent="." index="1"]
+surface_material_override/0 = ExtResource("5_pswue")

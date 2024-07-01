@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d0rqihcfo8mqt"]
+
+[node name="frigo" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73913, 1.34896, 0.00161791)
+size = Vector3(2.78821, 4.16589, 2.00916)
+
+[node name="hueco" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060379, 1.35788, -0.259766)
+operation = 2
+size = Vector3(2.32693, 1.18408, 1.51953)
+
+[node name="hueco2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060379, 0.103396, -0.259766)
+operation = 2
+size = Vector3(2.32693, 1.21191, 1.51953)
+
+[node name="hueco3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060379, -1.18194, -0.259766)
+operation = 2
+size = Vector3(2.32693, 1.26855, 1.51953)
+
+[node name="frigo3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25458, 0, -1.11514)
+size = Vector3(0.275238, 4.16589, 0.209656)
+
+[node name="frigopuerta" type="CSGBox3D" parent="frigo3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39542, 0, 0)
+size = Vector3(2.50653, 4.16589, 0.209656)

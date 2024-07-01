@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dvealcdla4ne5"]
+
+[node name="microondas" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93987, 1.14179, 0)
+size = Vector3(1.47314, 0.681641, 1)
+
+[node name="hueco" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137924, 0.00932312, -0.112305)
+operation = 2
+size = Vector3(0.974396, 0.495148, 0.984375)
+
+[node name="microondaspuerta2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58606, 0, -0.553806)
+size = Vector3(0.301025, 0.681641, 0.103027)
+
+[node name="microondaspuerta" type="CSGBox3D" parent="microondaspuerta2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.736573, 0, 0)
+size = Vector3(1.17212, 0.681641, 0.103027)
+
+[node name="ventana" type="CSGBox3D" parent="microondaspuerta2/microondaspuerta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0251465, -0.00427246, -0.00866699)
+operation = 2
+size = Vector3(0.946777, 0.462646, 0.120361)

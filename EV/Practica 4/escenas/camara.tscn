@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ytcj2qy257w"]
+
+[ext_resource type="Script" path="res://scripts/camaraLeftRight.gd" id="1_kah8e"]
+[ext_resource type="Script" path="res://scripts/camaraUpDown.gd" id="2_76yr8"]
+
+[node name="camara" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.08869, 0)
+script = ExtResource("1_kah8e")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("2_76yr8")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, 0)

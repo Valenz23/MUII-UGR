@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8441ajmycgqf"]
+
+[ext_resource type="PackedScene" uid="uid://cxbe8wpm6qvc" path="res://blender/cinta/cinta2.glb" id="1_ehywl"]
+[ext_resource type="Script" path="res://scripts/puerta2Abrir.gd" id="2_qck2i"]
+[ext_resource type="Material" uid="uid://chjdxbcomg3ds" path="res://materiales/plastico_negro.tres" id="2_rrbg6"]
+[ext_resource type="Material" uid="uid://crenq4keet3g" path="res://materiales/metal_pulido.tres" id="3_0seff"]
+
+[node name="cinta2" instance=ExtResource("1_ehywl")]
+script = ExtResource("2_qck2i")
+
+[node name="cinta" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_rrbg6")
+
+[node name="caja" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_0seff")
+
+[node name="puerta1" parent="." index="2"]
+surface_material_override/0 = ExtResource("3_0seff")
+
+[node name="puerta2" parent="." index="3"]
+surface_material_override/0 = ExtResource("3_0seff")

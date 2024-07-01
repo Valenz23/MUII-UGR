@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7qxeojs5k2c6"]
+
+[ext_resource type="PackedScene" uid="uid://c2jqm1pn6pqwn" path="res://blender/habitacion/habitacion2.glb" id="1_co80g"]
+[ext_resource type="Texture2D" uid="uid://3frba4gn17lo" path="res://blender/habitacion/uv/habitacion_color.png" id="2_0c3jj"]
+[ext_resource type="Material" uid="uid://bdohk3w5uwutp" path="res://materiales/losetas_blancas.tres" id="3_43j7w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gs1b6"]
+albedo_texture = ExtResource("2_0c3jj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xtdg"]
+albedo_texture = ExtResource("2_0c3jj")
+
+[node name="habitacion2" instance=ExtResource("1_co80g")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gs1b6")
+
+[node name="Cube_001" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 1, -0.981191, 0.04, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_0xtdg")
+
+[node name="Plane" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07695, 0)
+surface_material_override/0 = ExtResource("3_43j7w")

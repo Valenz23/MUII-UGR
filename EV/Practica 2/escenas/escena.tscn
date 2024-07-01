@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhnkbjtc47hkj"]
+
+[ext_resource type="PackedScene" uid="uid://dy6cla3w604by" path="res://escenas/obj_habitacion.tscn" id="1_ohxn0"]
+[ext_resource type="PackedScene" uid="uid://dyrqcsx6anpn0" path="res://blender/cinta/cinta.glb" id="1_qc6l1"]
+[ext_resource type="PackedScene" uid="uid://cpgvsmglf638w" path="res://escenas/obj_palanca.tscn" id="2_iss8l"]
+[ext_resource type="PackedScene" uid="uid://bb7egje5vc5x2" path="res://blender/pulsador/pulsador.glb" id="2_qttsr"]
+[ext_resource type="PackedScene" uid="uid://my5n1oi58lh3" path="res://escenas/obj_mesa.tscn" id="3_ancbd"]
+[ext_resource type="PackedScene" uid="uid://yjxa6eys0xlb" path="res://escenas/obj_silla.tscn" id="4_5q2t4"]
+[ext_resource type="PackedScene" uid="uid://tn0xblgesv3h" path="res://blender/luz/luz.glb" id="6_i31fa"]
+[ext_resource type="PackedScene" uid="uid://i7e25dc4jrj1" path="res://blender/encimera/encimera.glb" id="7_wv4u6"]
+[ext_resource type="PackedScene" uid="uid://m1ucff3mjwh4" path="res://blender/pizza/pizza.glb" id="8_lve0p"]
+[ext_resource type="PackedScene" uid="uid://p7xrnhrmvbeg" path="res://blender/nevera/nevera.glb" id="9_ar3yc"]
+[ext_resource type="PackedScene" uid="uid://s3vcb16c4rm" path="res://escenas/obj_microondas.tscn" id="11_d2tlh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="cinta2" parent="." instance=ExtResource("1_qc6l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338187, 0.939031, 0.659575)
+
+[node name="habitacion" parent="." instance=ExtResource("1_ohxn0")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, -6.27822, 2.18588, 3.41008)
+
+[node name="pulsador2" parent="habitacion" instance=ExtResource("2_qttsr")]
+transform = Transform3D(-2.18556e-09, 0.05, -2.18556e-09, 0, -4.37112e-09, -0.1, -0.05, -2.18556e-09, 9.55342e-17, 0.936034, 0.0406158, -0.184668)
+
+[node name="palanca" parent="habitacion" instance=ExtResource("2_iss8l")]
+transform = Transform3D(-0.1, 0, 8.74228e-09, 1.74846e-08, -8.74228e-09, 0.2, 3.82138e-16, 0.1, 4.37114e-09, 0.552848, -0.0584871, -0.928966)
+
+[node name="mesa" parent="habitacion" instance=ExtResource("3_ancbd")]
+transform = Transform3D(0.15, 0, 0, 0, 0.3, 0, 0, 0, 0.15, -0.187965, -0.596662, 0.451486)
+
+[node name="silla" parent="habitacion/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(0.0470014, 0, -0.748526, 0, 0.75, 0, 0.748526, 0, 0.0470014, 0.0758486, -0.279318, -2.7453)
+
+[node name="silla2" parent="habitacion/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(0.748526, 0, 0.0470015, 0, 0.75, 0, -0.0470015, 0, 0.748526, -2.72415, -0.279318, -0.233534)
+
+[node name="silla3" parent="habitacion/mesa" instance=ExtResource("4_5q2t4")]
+transform = Transform3D(-0.748526, 0, -0.0470014, 0, 0.75, 0, 0.0470014, 0, -0.748526, 2.80823, -0.279318, -0.233534)
+
+[node name="habitacion3" parent="." instance=ExtResource("1_ohxn0")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, 6.30676, 2.18588, 3.41008)
+
+[node name="palanca2" parent="habitacion3" instance=ExtResource("2_iss8l")]
+transform = Transform3D(-0.1, -4.37114e-09, 8.74228e-09, 1.74846e-08, 3.82137e-16, 0.2, -4.37114e-09, 0.1, 1.91069e-16, -0.559879, -0.117571, -0.970286)
+
+[node name="luz2" parent="habitacion3" instance=ExtResource("6_i31fa")]
+transform = Transform3D(-4.37114e-09, 0.1, 1.67037e-23, -0.2, -8.74228e-09, 0, 2.11758e-23, 8.35188e-24, 0.1, -0.922623, 0.43275, -0.142295)
+
+[node name="pizza" parent="habitacion3" instance=ExtResource("8_lve0p")]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, -0.0842947, -0.290393, 0.757728)
+
+[node name="encimera" parent="habitacion3" instance=ExtResource("7_wv4u6")]
+transform = Transform3D(-6.5567e-09, 0, 0.15, 0, 0.3, 0, -0.15, 0, -6.5567e-09, -0.478477, -0.594993, 0.750956)
+
+[node name="microondas" parent="habitacion3/encimera" instance=ExtResource("11_d2tlh")]
+transform = Transform3D(-0.724444, 0, 0.194114, 0, 0.75, 0, -0.194114, 0, -0.724444, 0.113655, 1.18205, 0.0549698)
+
+[node name="encimera2" parent="habitacion3" instance=ExtResource("7_wv4u6")]
+transform = Transform3D(-6.5567e-09, 0, 0.15, 0, 0.3, 0, -0.15, 0, -6.5567e-09, -0.192161, -0.594993, 0.750956)
+
+[node name="encimera3" parent="habitacion3" instance=ExtResource("7_wv4u6")]
+transform = Transform3D(-6.5567e-09, 0, 0.15, 0, 0.3, 0, -0.15, 0, -6.5567e-09, 0.107838, -0.594993, 0.750956)
+
+[node name="nevera" parent="habitacion3" instance=ExtResource("9_ar3yc")]
+transform = Transform3D(-0.15, 0, -2.26494e-08, 0, 0.3, 0, 2.26494e-08, 0, -0.15, 0.42941, -0.299549, 0.729452)
+
+[node name="Camera3D" type="Camera3D" parent="habitacion3"]
+transform = Transform3D(-1, -1.10788e-08, -1.49659e-07, -3.08536e-08, 0.991144, 0.132788, 1.46862e-07, 0.132788, -0.991144, -0.727041, 0.0665627, -0.055725)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="habitacion3"]
+light_energy = 8.01

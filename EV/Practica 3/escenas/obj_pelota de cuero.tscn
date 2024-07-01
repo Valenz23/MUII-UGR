@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://1leeywvj76el"]
+
+[ext_resource type="Texture2D" uid="uid://bqvgh7l2ngv48" path="res://texturas/Leather011_1K-JPG/Leather011_1K-JPG_Color.jpg" id="1_4ad12"]
+[ext_resource type="Texture2D" uid="uid://dd71d16nl7xpw" path="res://texturas/Leather011_1K-JPG/Leather011_1K-JPG_NormalDX.jpg" id="2_dtdx8"]
+[ext_resource type="Texture2D" uid="uid://y2ley8mbunek" path="res://texturas/Leather011_1K-JPG/Leather011_1K-JPG_Roughness.jpg" id="3_llpxo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lopkb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oopr7"]
+albedo_texture = ExtResource("1_4ad12")
+metallic = 0.11
+metallic_specular = 0.2
+roughness_texture = ExtResource("3_llpxo")
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 5.0
+normal_enabled = true
+normal_texture = ExtResource("2_dtdx8")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_lopkb")
+surface_material_override/0 = SubResource("StandardMaterial3D_oopr7")

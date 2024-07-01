@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://tb6hk1ilghlg"]
+
+[ext_resource type="Texture2D" uid="uid://csnqwjmvlkobn" path="res://texturas/Granite004B_1K/Granite004B_1K-JPG_Color.jpg" id="1_wgj0p"]
+[ext_resource type="Texture2D" uid="uid://rmuf3nfggf6g" path="res://texturas/Granite004B_1K/Granite004B_1K-PNG_NormalGL.png" id="2_7vp22"]
+[ext_resource type="Texture2D" uid="uid://dl0di4qh2183p" path="res://texturas/Granite004B_1K/Granite004B_1K-PNG_Roughness.png" id="3_2rbuf"]
+
+[resource]
+albedo_texture = ExtResource("1_wgj0p")
+metallic = 0.8
+roughness_texture = ExtResource("3_2rbuf")
+normal_enabled = true
+normal_texture = ExtResource("2_7vp22")

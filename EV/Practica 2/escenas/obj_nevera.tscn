@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfe5580curcib"]
+
+[ext_resource type="PackedScene" uid="uid://p7xrnhrmvbeg" path="res://blender/nevera/nevera.glb" id="1_mgil8"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="nevera" parent="." instance=ExtResource("1_mgil8")]

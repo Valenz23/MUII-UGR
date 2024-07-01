@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://my5n1oi58lh3"]
+
+[ext_resource type="PackedScene" uid="uid://cl6mk2cucnv0t" path="res://blender/mesa/mesa.glb" id="1_xis7n"]
+[ext_resource type="Material" uid="uid://cswbrj4k6ubud" path="res://materiales/madera.tres" id="2_3ff4i"]
+
+[node name="mesa" instance=ExtResource("1_xis7n")]
+
+[node name="tabla" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_3ff4i")
+
+[node name="patas" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_3ff4i")

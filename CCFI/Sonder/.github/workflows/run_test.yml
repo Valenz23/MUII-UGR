@@ -1,0 +1,18 @@
+name: Ejecutar test de repositorio
+run-name: ${{ github.actor }} esta ejecutando tests 🚀
+
+on: 
+  push:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build and deploy Docker Compose
+      run: |
+        docker-compose up -d
+
