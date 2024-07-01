@@ -1,6 +1,6 @@
 # **MUII-UGR**
  
-## Asigntaturas:
+## Asignaturas:
 
  - [**ASS**](ASS/): Administración de Sistemas y Seguridad
  - [**CCFI**](CCFI/): Cloud Computing: Fundamentos e Infraestructuras
