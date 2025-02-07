@@ -1,0 +1,528 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.pizza.com/pizza.owld/"
+     xml:base="http://www.pizza.com/pizza.owld/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.pizza.com/pizza.owld"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#esBase -->
+
+    <owl:ObjectProperty rdf:about="http://www.pizza.com/pizza.owld#esBase">
+        <rdfs:subPropertyOf rdf:resource="http://www.pizza.com/pizza.owld#esIngrediente"/>
+        <owl:inverseOf rdf:resource="http://www.pizza.com/pizza.owld#tieneBase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#esCubierta -->
+
+    <owl:ObjectProperty rdf:about="http://www.pizza.com/pizza.owld#esCubierta">
+        <rdfs:subPropertyOf rdf:resource="http://www.pizza.com/pizza.owld#esIngrediente"/>
+        <owl:inverseOf rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#esIngrediente -->
+
+    <owl:ObjectProperty rdf:about="http://www.pizza.com/pizza.owld#esIngrediente">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.pizza.com/pizza.owld#tieneIngrediente"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#tieneBase -->
+
+    <owl:ObjectProperty rdf:about="http://www.pizza.com/pizza.owld#tieneBase">
+        <rdfs:subPropertyOf rdf:resource="http://www.pizza.com/pizza.owld#tieneIngrediente"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+        <rdfs:range rdf:resource="http://www.pizza.com/pizza.owld#BasePizza"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#tieneCubierta -->
+
+    <owl:ObjectProperty rdf:about="http://www.pizza.com/pizza.owld#tieneCubierta">
+        <rdfs:subPropertyOf rdf:resource="http://www.pizza.com/pizza.owld#tieneIngrediente"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+        <rdfs:range rdf:resource="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#tieneIngrediente -->
+
+    <owl:ObjectProperty rdf:about="http://www.pizza.com/pizza.owld#tieneIngrediente">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Aceitunas -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Aceitunas">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Vegetales"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Alcaparras -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Alcaparras">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Vegetales"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Anchoas -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Anchoas">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pescado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Atun -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Atun">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pescado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#BaseAncha -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#BaseAncha">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#BasePizza"/>
+        <owl:disjointWith rdf:resource="http://www.pizza.com/pizza.owld#BaseDelgadaCrujiente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#BaseDelgadaCrujiente -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#BaseDelgadaCrujiente">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#BasePizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#BasePizza -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#BasePizza"/>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Camarones -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Camarones">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pescado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Carne -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Carne">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Champiñon -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Champiñon">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Vegetales"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#IngredientePizza -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Jalapeño -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Jalapeño">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pimientos"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Jamon -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Jamon">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Carne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Mozzarella -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Mozzarella">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Queso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Parmesano -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Parmesano">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Queso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Pepperoni -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Pepperoni">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Carne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Pescado -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Pescado">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Pimientos -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Pimientos">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Vegetales"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Pizza -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Pizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneBase"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#BasePizza"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Pizza3Ingredientes -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Pizza3Ingredientes">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#PizzaAmericana -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#PizzaAmericana">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Mozzarella"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Pepperoni"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Tomate"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#PizzaAmericanaPicante -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#PizzaAmericanaPicante">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Jalapeño"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Mozzarella"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Pepperoni"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Tomate"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#PizzaConQueso -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#PizzaConQueso">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Queso"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#PizzaMargarita -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#PizzaMargarita">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Mozzarella"/>
+                                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Tomate"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#PizzaNoVegetariana -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#PizzaNoVegetariana">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneIngrediente"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Carne"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#PizzaSoho -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#PizzaSoho">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Aceitunas"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Mozzarella"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Parmesano"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                        <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Tomate"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#PizzaVegetariana -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#PizzaVegetariana">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.pizza.com/pizza.owld#tieneCubierta"/>
+                                <owl:someValuesFrom rdf:resource="http://www.pizza.com/pizza.owld#Carne"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Queso -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Queso">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Rojo -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Rojo">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pimientos"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Salami -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Salami">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Carne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Ternera -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Ternera">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Carne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Tomate -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Tomate">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Vegetales"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Vegetales -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Vegetales">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.pizza.com/pizza.owld#Verde -->
+
+    <owl:Class rdf:about="http://www.pizza.com/pizza.owld#Verde">
+        <rdfs:subClassOf rdf:resource="http://www.pizza.com/pizza.owld#Pimientos"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#BasePizza"/>
+            <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#IngredientePizza"/>
+            <rdf:Description rdf:about="http://www.pizza.com/pizza.owld#Pizza"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

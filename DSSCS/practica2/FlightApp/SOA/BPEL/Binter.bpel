@@ -1,0 +1,165 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Tue Nov 12 21:09:22 CET 2024
+  Author:  Valenz
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BinterBPELProcess"
+               targetNamespace="http://xmlns.oracle.com/practica2/FlightApp/BinterBPELProcess"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/practica2/FlightApp/BinterBPELProcess"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/practica2/FlightApp/BinterBPELProcess"
+            location="../WSDLs/Binter.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="binterbpelprocess_client" partnerLinkType="client:BinterBPELProcess" myRole="BinterBPELProcessProvider"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:BinterBPELProcessRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:BinterBPELProcessResponseMessage"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in BinterBPELProcess.wsdl) -->
+    <receive name="receiveInput" partnerLink="binterbpelprocess_client" portType="client:BinterBPELProcess" operation="process" variable="inputVariable" createInstance="yes"/>
+    <if name="If_check_fecha">
+      <documentation>
+        <![CDATA[correcto]]>
+      </documentation>
+      <condition>($inputVariable.payload/client:fecha_vuelta &gt;= $inputVariable.payload/client:fecha_ida) and ($inputVariable.payload/client:fecha_ida &gt;= xp20:current-dateTime())</condition>
+      <empty name="EmptyCorrecto"/>
+      <else>
+        <documentation>
+          <![CDATA[incorrecto]]>
+        </documentation>
+        <throw name="ErrorFecha" faultName="bpel:invalidVariables" faultVariable="inputVariable">
+          <bpelx:annotation>
+            <bpelx:documentation>
+              <![CDATA[Las fechas introducidas son incorrectas. Asegurese de que la fecha de ida no es superior a la fecha de vuelta]]>
+            </bpelx:documentation>
+          </bpelx:annotation>
+        </throw>
+      </else>
+    </if>
+    <if name="If_clase">
+      <documentation>
+        <![CDATA[primera]]>
+      </documentation>
+      <condition>$inputVariable.payload/client:empleado_clase='Primera'</condition>
+      <assign name="x20">
+        <copy>
+          <from>20</from>
+          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio</to>
+        </copy>
+      </assign>
+      <elseif>
+        <documentation>
+          <![CDATA[segunda]]>
+        </documentation>
+        <condition>$inputVariable.payload/client:empleado_clase='Segunda'</condition>
+        <assign name="x12.5">
+          <copy>
+            <from>12.5</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio</to>
+          </copy>
+        </assign>
+      </elseif>
+      <else>
+        <documentation>
+          <![CDATA[tercera]]>
+        </documentation>
+        <assign name="x10">
+          <copy>
+            <from>10</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio</to>
+          </copy>
+        </assign>
+      </else>
+    </if>
+    <if name="If_aeropuerto">
+      <documentation>
+        <![CDATA[Granada]]>
+      </documentation>
+      <condition>xp20:upper-case($inputVariable.payload/client:aeropuerto)='GRANADA'</condition>
+      <assign name="x25">
+        <copy>
+          <from>$outputVariable.payload/client:precio*25</from>
+          <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio</to>
+        </copy>
+      </assign>
+      <elseif>
+        <documentation>
+          <![CDATA[Malaga]]>
+        </documentation>
+        <condition>xp20:upper-case($inputVariable.payload/client:aeropuerto)='MALAGA'</condition>
+        <assign name="x15">
+          <copy>
+            <from>$outputVariable.payload/client:precio*15</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio</to>
+          </copy>
+        </assign>
+      </elseif>
+      <else>
+        <documentation>
+          <![CDATA[Otro]]>
+        </documentation>
+        <assign name="x10">
+          <copy>
+            <from>$outputVariable.payload/client:precio*10</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio</to>
+          </copy>
+        </assign>
+      </else>
+    </if>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="binterbpelprocess_client" portType="client:BinterBPELProcess" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

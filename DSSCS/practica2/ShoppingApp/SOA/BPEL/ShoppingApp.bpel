@@ -1,0 +1,188 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Sat Nov 16 18:48:13 CET 2024
+  Author:  Valenz
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="ShoppingApp"
+               targetNamespace="http://xmlns.oracle.com/practica2/ShoppingApp/ShoppingApp"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/practica2/ShoppingApp/ShoppingApp"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/practica2/ShoppingApp/VerPrecios"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:ns2="http://xmlns.oracle.com/practica2/ShoppingApp/Comprador"
+         xmlns:ns3="http://xmlns.oracle.com/practica2/ShoppingApp/Vendedor">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/practica2/ShoppingApp/ShoppingApp" location="../WSDLs/ShoppingApp.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="shoppingapp_client" partnerLinkType="client:ShoppingApp" myRole="ShoppingAppProvider"/>
+    <partnerLink name="VerPrecios.verprecios_client" partnerLinkType="ns1:VerPrecios" partnerRole="VerPreciosProvider"/>
+    <partnerLink name="Comprador.comprador_client" partnerLinkType="ns2:Comprador" partnerRole="CompradorProvider"/>
+    <partnerLink name="Vendedor.vendedor_client" partnerLinkType="ns3:Vendedor" partnerRole="VendedorProvider"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:ShoppingAppRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:ShoppingAppResponseMessage"/>
+    <variable name="InvokeVerPrecios_process_InputVariable" messageType="ns1:VerPreciosRequestMessage"/>
+    <variable name="InvokeVerPrecios_process_OutputVariable" messageType="ns1:VerPreciosResponseMessage"/>
+    <variable name="InvokeComprador_process_InputVariable" messageType="ns2:CompradorRequestMessage"/>
+    <variable name="InvokeComprador_process_OutputVariable" messageType="ns2:CompradorResponseMessage"/>
+    <variable name="InvokeVendedor_process_InputVariable" messageType="ns3:VendedorRequestMessage"/>
+    <variable name="InvokeVendedor_process_OutputVariable" messageType="ns3:VendedorResponseMessage"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in ShoppingApp.wsdl) -->
+    <receive name="receiveInput" partnerLink="shoppingapp_client" portType="client:ShoppingApp" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="AssignVerPrecios">
+      <copy>
+        <from>$inputVariable.payload/client:producto</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$InvokeVerPrecios_process_InputVariable.payload/ns1:producto</to>
+      </copy>
+    </assign>
+    <invoke name="InvokeVerPrecios" partnerLink="VerPrecios.verprecios_client"
+            portType="ns1:VerPrecios" operation="process" inputVariable="InvokeVerPrecios_process_InputVariable"
+            outputVariable="InvokeVerPrecios_process_OutputVariable" bpelx:invokeAsDetail="no"/>
+    <if name="If_checkStock">
+      <documentation>
+        <![CDATA[true]]>
+      </documentation>
+      <condition>$InvokeVerPrecios_process_OutputVariable.payload/ns1:enStock='true'</condition>
+      <sequence name="Sequence1">
+        <assign name="AssignSiStock">
+          <copy>
+            <from>$InvokeVerPrecios_process_OutputVariable.payload/ns1:precio</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$InvokeComprador_process_InputVariable.payload/ns2:precio_ofrecido</to>
+          </copy>
+          <copy>
+            <from>$InvokeVerPrecios_process_OutputVariable.payload/ns1:precio</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$InvokeComprador_process_InputVariable.payload/ns2:precio_inicial</to>
+          </copy>
+          <copy>
+            <from>false()</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$InvokeComprador_process_OutputVariable.payload/ns2:comprar</to>
+          </copy>
+        </assign>
+        <while name="WhileNoCompra">
+          <condition>$InvokeComprador_process_OutputVariable.payload/ns2:comprar='false'</condition>
+          <sequence name="Sequence2">
+            <invoke name="InvokeComprador" partnerLink="Comprador.comprador_client" portType="ns2:Comprador"
+                    operation="process" inputVariable="InvokeComprador_process_InputVariable"
+                    outputVariable="InvokeComprador_process_OutputVariable" bpelx:invokeAsDetail="no"/>
+            <if name="If_compra">
+              <documentation>
+                <![CDATA[true]]>
+              </documentation>
+              <condition>$InvokeComprador_process_OutputVariable.payload/ns2:comprar='true'</condition>
+              <assign name="AssignSiCompra">
+                <copy>
+                  <from>$inputVariable.payload/client:producto</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:producto</to>
+                </copy>
+                <copy>
+                  <from>$InvokeVerPrecios_process_OutputVariable.payload/ns1:precio</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio_inicial</to>
+                </copy>
+                <copy>
+                  <from>$InvokeVendedor_process_OutputVariable.payload/ns3:precio_ofrecido</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:precio_final</to>
+                </copy>
+                <copy>
+                  <from>string('Producto comprado')</from>
+                  <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:mensaje</to>
+                </copy>
+              </assign>
+              <else>
+                <documentation>
+                  <![CDATA[false]]>
+                </documentation>
+                <sequence name="Sequence3">
+                  <assign name="AssignOferta">
+                    <copy>
+                      <from>$InvokeComprador_process_InputVariable.payload/ns2:precio_ofrecido</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$InvokeVendedor_process_InputVariable.payload/ns3:oferta_recibida</to>
+                    </copy>
+                  </assign>
+                  <invoke name="InvokeVendedor" partnerLink="Vendedor.vendedor_client"
+                          portType="ns3:Vendedor" operation="process"
+                          inputVariable="InvokeVendedor_process_InputVariable"
+                          outputVariable="InvokeVendedor_process_OutputVariable" bpelx:invokeAsDetail="no"/>
+                  <assign name="AssignContraOferta">
+                    <copy>
+                      <from>$InvokeVendedor_process_OutputVariable.payload/ns3:precio_ofrecido</from>
+                      <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$InvokeComprador_process_InputVariable.payload/ns2:precio_ofrecido</to>
+                    </copy>
+                  </assign>
+                </sequence>
+              </else>
+            </if>
+          </sequence>
+        </while>
+      </sequence>
+      <else>
+        <documentation>
+          <![CDATA[false]]>
+        </documentation>
+        <assign name="AssignNoStock">
+          <copy>
+            <from>$inputVariable.payload/client:producto</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:producto</to>
+          </copy>
+          <copy>
+            <from>string('Producto sin stock')</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:mensaje</to>
+          </copy>
+        </assign>
+      </else>
+    </if>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="shoppingapp_client" portType="client:ShoppingApp" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

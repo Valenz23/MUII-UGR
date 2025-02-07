@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Hola -->
+    <TextView
+        android:id="@+id/textViewRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hola admin"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/fondo">
+
+        <!-- Carrito -->
+        <Button
+            android:id="@+id/buttonViewCart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Carrito"
+            android:backgroundTint="@color/orange"
+            android:textColor="@android:color/white" />
+
+        <!-- Mapa -->
+        <Button
+            android:id="@+id/buttonViewMap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mapa"
+            android:backgroundTint="@color/blue"
+            android:textColor="@android:color/white" />
+
+        <!-- Cerrar sesión -->
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red"
+            android:text="Logout"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/fondo">
+
+        <!-- Añadir (solo se muestra al admin) -->
+        <Button
+            android:id="@+id/buttonAddProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_500"
+            android:text="Añadir producto"
+            android:textColor="@android:color/white"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <!-- RecyclerView productos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProducts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp" />
+
+</LinearLayout>

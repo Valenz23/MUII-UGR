@@ -1,0 +1,8 @@
+Customer and
+purchasedPizza some (hasTopping some (hasSpiciness value Hot))
+
+Pizza and
+hasTopping some (hasSpiciness value Hot)
+
+VegetarianPizza and
+hasTopping some (isMilderThan value Hot)

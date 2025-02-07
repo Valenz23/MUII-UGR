@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- contenedor para nombre y precio -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewCartName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del producto"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="4dp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/textViewCartPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:textSize="14sp"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+
+    <!-- boton para eliminar del carrito -->
+    <Button
+        android:id="@+id/buttonRemoveFromCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:textSize="12sp"
+        android:padding="4dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/red"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
