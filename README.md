@@ -1,4 +1,4 @@
-# **Asignaturas MUII-UGR**
+# **MUII-UGR**
 
 En este repositorios están todas las asignaturas que he cursado en el máster MUII-UGR.
  
